@@ -1,5 +1,28 @@
-# Faça um fork desse repositório
+# desafio-cdc
 
-Este é um repositório vazio de propósito. A ideia é que você faça um fork para que eu, Alberto, possa usar o github para ter a chance de olhar vários dos códigos produzido por você e seus(as) colegas da Jornada Dev Eficiente :). 
+API para suportar parte do funcionamento da casa do código. Este componente também será utilizado para experimentações 
+no desenvolvimento, como por exemplo o uso da recém lançada JDK 24.
 
-Durante cada uma das seis semanas eu vou pegar código por amostragem e analisar. Feito isso, vou criar um vídeo anonimizando a pessoa que é dona do código, com as minhas observações e postar isso como material de suporte da funcionalidade :). 
+# Stack
+
+* Java 24
+* Spring Boot 4
+
+# Cadastro de um novo autor
+
+## Necessidades
+
+É necessário cadastrar um novo autor no sistema. Todo autor tem um nome, email e uma descrição. Também queremos saber o instante exato que ele foi registrado.
+
+## Restrições
+
+* O instante não pode ser nulo 
+* O email é obrigatório 
+* O email tem que ter formato válido 
+* O nome é obrigatório 
+* A descrição é obrigatória e não pode passar de 400 caracteres
+
+
+## Resultado esperado
+
+Um novo autor criado e status 200 retornado
