@@ -6,7 +6,7 @@ no desenvolvimento, como por exemplo o uso da recém lançada JDK 24.
 # Stack
 
 * Java 24
-* Spring Boot 4
+* Spring Boot 3.5
 
 # Cadastro de um novo autor
 

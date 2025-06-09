@@ -1,4 +1,4 @@
-package dev.desafiocdc.desafio_cdc.dtos;
+package dev.desafiocdc.dtos;
 
 import java.time.Instant;
 

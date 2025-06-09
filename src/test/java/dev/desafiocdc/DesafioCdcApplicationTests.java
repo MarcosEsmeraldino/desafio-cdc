@@ -1,4 +1,4 @@
-package dev.desafiocdc.desafio_cdc;
+package dev.desafiocdc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

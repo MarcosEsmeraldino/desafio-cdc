@@ -1,10 +1,10 @@
-package dev.desafiocdc.desafio_cdc;
+package dev.desafiocdc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@EnableMongoRepositories(basePackages = "dev.desafiocdc.desafio_cdc.client")
+@EnableMongoRepositories(basePackages = "dev.desafiocdc.client")
 @SpringBootApplication
 public class DesafioCdcApplication {
 

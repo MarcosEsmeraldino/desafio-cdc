@@ -1,14 +1,16 @@
-package dev.desafiocdc.desafio_cdc.services;
+package dev.desafiocdc.services;
 
-import dev.desafiocdc.desafio_cdc.client.autor.entity.Autor;
-import dev.desafiocdc.desafio_cdc.client.autor.repository.AutorRepository;
-import dev.desafiocdc.desafio_cdc.dtos.AutorRequestDTO;
-import dev.desafiocdc.desafio_cdc.dtos.AutorResponseDTO;
+import dev.desafiocdc.client.autor.entity.Autor;
+import dev.desafiocdc.client.autor.repository.AutorRepository;
+import dev.desafiocdc.dtos.AutorRequestDTO;
+import dev.desafiocdc.dtos.AutorResponseDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 
+@Slf4j
 @Service
 public class AutorService {
 
@@ -16,8 +18,9 @@ public class AutorService {
     private AutorRepository autorRepository;
 
     public AutorResponseDTO cadastrarAutor(AutorRequestDTO request) {
+        log.debug("service cadastrarAutor: {}", request);
         var autor = toEntity(request);
-        autor = autorRepository.save(autor);
+        autor = autorRepository.insert(autor);
         return toResponseDTO(autor);
     }
 
