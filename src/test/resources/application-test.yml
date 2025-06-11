@@ -3,8 +3,4 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: desafio-cdc
-
-#logging:
-#  level:
-#    root: DEBUG
+      database: desafio-cdc-test

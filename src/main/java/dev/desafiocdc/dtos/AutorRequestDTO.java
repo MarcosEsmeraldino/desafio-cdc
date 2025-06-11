@@ -1,19 +1,16 @@
 package dev.desafiocdc.dtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public record AutorRequestDTO(
-        @NotBlank
+        @NotBlank(message = "Nome é obrigatório")
         String nome,
 
-        @NotNull
-        @Pattern(regexp = "^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
+        @NotBlank(message = "Email é obrigatório")
+        @Email(message = "Formato de email inválido")
         String email,
 
-        @NotNull
-        @Size(max = 400)
+        @NotBlank(message = "Descrição é obrigatória")
+        @Size(max = 400, message = "Descrição deve ter no máximo 400 caracteres")
         String descricao
 ) { }

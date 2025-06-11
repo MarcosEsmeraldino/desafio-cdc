@@ -29,14 +29,13 @@ public class AutorService {
         autor.setNome(dto.nome());
         autor.setEmail(dto.email());
         autor.setDescricao(dto.descricao());
-        autor.setInstante(Instant.now());
         return autor;
     }
 
     private AutorResponseDTO toResponseDTO(Autor autor) {
         return new AutorResponseDTO(
                 autor.getId(),
-                autor.getInstante(),
+                autor.getCreatedAt(),
                 autor.getNome(),
                 autor.getEmail(),
                 autor.getDescricao()
