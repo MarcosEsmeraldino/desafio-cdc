@@ -55,7 +55,7 @@ class AutorControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.messages").value("Formato de email inválido"));
+                .andExpect(jsonPath("$.message").value("Formato de email inválido"));
     }
 
     @Test
@@ -72,6 +72,6 @@ class AutorControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.messages").value("Descrição deve ter no máximo 400 caracteres"));
+                .andExpect(jsonPath("$.message").value("Descrição deve ter no máximo 400 caracteres"));
     }
 }

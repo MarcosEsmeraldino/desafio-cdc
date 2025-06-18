@@ -20,7 +20,7 @@ public class AutorService {
         log.debug("service cadastrarAutor: {}", request);
 
         if (autorRepository.existsByEmail(request.email())) {
-            throw new EmailDuplicadoException("Já existe um autor com esse e-mail.");
+            throw new EmailDuplicadoException("E-mail já cadastrado");
         }
 
         var autor = toEntity(request);

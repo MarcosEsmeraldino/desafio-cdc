@@ -19,16 +19,16 @@ public class Autor {
     private String id;
 
     @NotBlank(message = "Nome é obrigatório")
-    String nome;
+    private String nome;
 
     @Indexed(unique = true)
     @NotBlank(message = "Email é obrigatório")
     @Email(message = "Formato de email inválido")
-    String email;
+    private String email;
 
     @NotBlank(message = "Descrição é obrigatória")
     @Size(max = 400, message = "Descrição deve ter no máximo 400 caracteres")
-    String descricao;
+    private String descricao;
 
     @CreatedDate // gerenciado por @EnableMongoAuditing
     private Instant createdAt;

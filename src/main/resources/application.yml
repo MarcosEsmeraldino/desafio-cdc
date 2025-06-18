@@ -5,6 +5,8 @@ spring:
       port: 27017
       database: desafio-cdc
       auto-index-creation: true
+  jackson:
+    default-property-inclusion: NON_NULL
 
 #logging:
 #  level:

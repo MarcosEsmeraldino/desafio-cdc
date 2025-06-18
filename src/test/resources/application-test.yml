@@ -1,6 +1,6 @@
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: desafio-cdc-test
+      database: test-db
+
+#de.flapdoodle.mongodb.embedded.version: 7.0.0 // TODO: mongodb embedded don't work
