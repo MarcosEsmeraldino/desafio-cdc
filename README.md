@@ -8,7 +8,7 @@ no desenvolvimento, como por exemplo o uso da recém lançada JDK 24.
 * Java 24
 * Spring Boot 3.5
 
-# Cadastro de um novo autor
+# 1. Cadastro de um novo autor
 
 ## Necessidades
 
@@ -26,3 +26,15 @@ no desenvolvimento, como por exemplo o uso da recém lançada JDK 24.
 ## Resultado esperado
 
 Um novo autor criado e status 200 retornado
+
+
+
+# 2. E-mail do autor é único
+
+## Necessidades
+
+O e-mail do autor precisa ser único no sistema 
+
+## Resultado esperado
+
+Erro de validação no caso de e-mail duplicado

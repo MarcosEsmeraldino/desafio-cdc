@@ -1,7 +1,8 @@
 package dev.desafiocdc.controllers;
 
-import dev.desafiocdc.client.autor.repository.AutorRepository;
+import dev.desafiocdc.client.autor.repositories.AutorRepository;
 import dev.desafiocdc.dtos.AutorResponseDTO;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,11 @@ public class AutorControllerIT {
 
     @Autowired
     private AutorRepository repository;
+
+    @BeforeEach
+    void setup() {
+        repository.deleteAll();
+    }
 
     @Test
     void shouldCreateAuthorSuccessfully() {

@@ -1,7 +1,7 @@
 package dev.desafiocdc.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.desafiocdc.client.autor.repository.AutorRepository;
+import dev.desafiocdc.client.autor.repositories.AutorRepository;
 import dev.desafiocdc.services.AutorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +55,7 @@ class AutorControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.email").value("Formato de email inválido"));
+                .andExpect(jsonPath("$.messages").value("Formato de email inválido"));
     }
 
     @Test
@@ -72,6 +72,6 @@ class AutorControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.descricao").value("Descrição deve ter no máximo 400 caracteres"));
+                .andExpect(jsonPath("$.messages").value("Descrição deve ter no máximo 400 caracteres"));
     }
 }

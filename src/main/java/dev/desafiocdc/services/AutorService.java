@@ -1,14 +1,13 @@
 package dev.desafiocdc.services;
 
-import dev.desafiocdc.client.autor.entity.Autor;
-import dev.desafiocdc.client.autor.repository.AutorRepository;
+import dev.desafiocdc.client.autor.entities.Autor;
+import dev.desafiocdc.client.autor.repositories.AutorRepository;
 import dev.desafiocdc.dtos.AutorRequestDTO;
 import dev.desafiocdc.dtos.AutorResponseDTO;
+import dev.desafiocdc.handler.exceptions.EmailDuplicadoException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.Instant;
 
 @Slf4j
 @Service
@@ -19,8 +18,14 @@ public class AutorService {
 
     public AutorResponseDTO cadastrarAutor(AutorRequestDTO request) {
         log.debug("service cadastrarAutor: {}", request);
+
+        if (autorRepository.existsByEmail(request.email())) {
+            throw new EmailDuplicadoException("Já existe um autor com esse e-mail.");
+        }
+
         var autor = toEntity(request);
         autor = autorRepository.insert(autor);
+
         return toResponseDTO(autor);
     }
 
