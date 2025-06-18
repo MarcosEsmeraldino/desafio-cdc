@@ -23,10 +23,10 @@ public class AutorService {
             throw new EmailDuplicadoException("E-mail já cadastrado");
         }
 
-        var autor = toEntity(request);
+        var autor = request.toModel();
         autor = autorRepository.insert(autor);
 
-        return toResponseDTO(autor);
+        return AutorResponseDTO.from(autor);
     }
 
     private Autor toEntity(AutorRequestDTO dto) {
