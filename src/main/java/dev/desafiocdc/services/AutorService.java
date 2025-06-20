@@ -24,26 +24,8 @@ public class AutorService {
         }
 
         var autor = request.toModel();
-        autor = autorRepository.insert(autor);
+        autor = autorRepository.save(autor);
 
         return AutorResponseDTO.from(autor);
-    }
-
-    private Autor toEntity(AutorRequestDTO dto) {
-        var autor = new Autor();
-        autor.setNome(dto.nome());
-        autor.setEmail(dto.email());
-        autor.setDescricao(dto.descricao());
-        return autor;
-    }
-
-    private AutorResponseDTO toResponseDTO(Autor autor) {
-        return new AutorResponseDTO(
-                autor.getId(),
-                autor.getCreatedAt(),
-                autor.getNome(),
-                autor.getEmail(),
-                autor.getDescricao()
-        );
     }
 }
