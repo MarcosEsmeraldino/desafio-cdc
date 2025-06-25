@@ -1,18 +1,24 @@
 package dev.desafiocdc.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dev.desafiocdc.client.autor.entities.Autor;
 import dev.desafiocdc.client.categoria.repositories.CategoriaRepository;
 import dev.desafiocdc.services.CategoriaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Map;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(controllers = CategoriaController.class)
@@ -30,6 +36,9 @@ class CategoriaControllerTest {
     @MockBean
     private CategoriaRepository repository;
 
+    @MockBean
+    private MongoTemplate mongoTemplate;
+
     @Test
     void shouldReturn400WhenNomeIsMissing() throws Exception {
         var payload = Map.of();
@@ -38,5 +47,20 @@ class CategoriaControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldReturn400WhenNomeIsDuplicated() throws Exception {
+        var payload = Map.of("nome", "Terror");
+
+        doReturn(true)
+                .when(mongoTemplate)
+                .exists(any(), eq(Autor.class));
+
+        mockMvc.perform(post("/autores")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(payload)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("E-mail já cadastrado"));
     }
 }

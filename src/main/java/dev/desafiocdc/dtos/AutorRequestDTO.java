@@ -1,14 +1,16 @@
 package dev.desafiocdc.dtos;
 
 import dev.desafiocdc.client.autor.entities.Autor;
+import dev.desafiocdc.validations.UniqueValue;
 import jakarta.validation.constraints.*;
 
 public record AutorRequestDTO(
         @NotBlank(message = "Nome é obrigatório")
         String nome,
 
-        @NotBlank(message = "Email é obrigatório")
-        @Email(message = "Formato de email inválido")
+        @UniqueValue(domainClass = Autor.class, fieldName = "email", message = "E-mail já cadastrado")
+        @NotBlank(message = "E-mail é obrigatório")
+        @Email(message = "Formato de e-mail inválido")
         String email,
 
         @NotBlank(message = "Descrição é obrigatória")
