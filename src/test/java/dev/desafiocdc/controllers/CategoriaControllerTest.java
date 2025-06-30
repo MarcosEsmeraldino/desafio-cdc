@@ -2,6 +2,7 @@ package dev.desafiocdc.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dev.desafiocdc.client.autor.entities.Autor;
+import dev.desafiocdc.client.categoria.entities.Categoria;
 import dev.desafiocdc.client.categoria.repositories.CategoriaRepository;
 import dev.desafiocdc.services.CategoriaService;
 import org.junit.jupiter.api.Test;
@@ -55,12 +56,12 @@ class CategoriaControllerTest {
 
         doReturn(true)
                 .when(mongoTemplate)
-                .exists(any(), eq(Autor.class));
+                .exists(any(), eq(Categoria.class));
 
-        mockMvc.perform(post("/autores")
+        mockMvc.perform(post("/categorias")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(payload)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.message").value("E-mail já cadastrado"));
+                .andExpect(jsonPath("$.message").value("Nome já cadastrado"));
     }
 }
