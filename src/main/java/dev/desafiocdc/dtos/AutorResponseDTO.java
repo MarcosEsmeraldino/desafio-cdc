@@ -1,11 +1,13 @@
 package dev.desafiocdc.dtos;
 
-import dev.desafiocdc.client.autor.entities.Autor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.desafiocdc.client.mongodb.entities.Autor;
 
 import java.time.Instant;
 
 public record AutorResponseDTO(
         String id,
+        @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss")
         Instant instante,
         String nome,
         String email,

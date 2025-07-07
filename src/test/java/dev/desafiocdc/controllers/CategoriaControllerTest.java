@@ -1,9 +1,8 @@
 package dev.desafiocdc.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.desafiocdc.client.autor.entities.Autor;
-import dev.desafiocdc.client.categoria.entities.Categoria;
-import dev.desafiocdc.client.categoria.repositories.CategoriaRepository;
+import dev.desafiocdc.client.mongodb.entities.Categoria;
+import dev.desafiocdc.client.mongodb.repositories.CategoriaRepository;
 import dev.desafiocdc.services.CategoriaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,16 @@ class CategoriaControllerTest {
 
     @MockBean
     private MongoTemplate mongoTemplate;
+
+    @Test
+    void shouldReturn200WhenPayloadIsOk() throws Exception {
+        var payload = Map.of("nome", "Terror");
+
+        mockMvc.perform(post("/categorias")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(payload)))
+                .andExpect(status().isOk());
+    }
 
     @Test
     void shouldReturn400WhenNomeIsMissing() throws Exception {

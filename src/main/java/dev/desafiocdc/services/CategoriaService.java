@@ -1,6 +1,6 @@
 package dev.desafiocdc.services;
 
-import dev.desafiocdc.client.categoria.repositories.CategoriaRepository;
+import dev.desafiocdc.client.mongodb.repositories.CategoriaRepository;
 import dev.desafiocdc.dtos.CategoriaRequestDTO;
 import dev.desafiocdc.dtos.CategoriaResponseDTO;
 import lombok.extern.slf4j.Slf4j;

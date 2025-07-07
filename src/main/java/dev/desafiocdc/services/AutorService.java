@@ -1,6 +1,6 @@
 package dev.desafiocdc.services;
 
-import dev.desafiocdc.client.autor.repositories.AutorRepository;
+import dev.desafiocdc.client.mongodb.repositories.AutorRepository;
 import dev.desafiocdc.dtos.AutorRequestDTO;
 import dev.desafiocdc.dtos.AutorResponseDTO;
 import lombok.extern.slf4j.Slf4j;

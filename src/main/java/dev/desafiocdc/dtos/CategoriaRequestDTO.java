@@ -1,6 +1,6 @@
 package dev.desafiocdc.dtos;
 
-import dev.desafiocdc.client.categoria.entities.Categoria;
+import dev.desafiocdc.client.mongodb.entities.Categoria;
 import dev.desafiocdc.validations.UniqueValue;
 import jakarta.validation.constraints.NotBlank;
 

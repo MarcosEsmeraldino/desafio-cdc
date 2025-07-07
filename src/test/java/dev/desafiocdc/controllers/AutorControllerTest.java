@@ -1,8 +1,8 @@
 package dev.desafiocdc.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dev.desafiocdc.client.autor.entities.Autor;
-import dev.desafiocdc.client.autor.repositories.AutorRepository;
+import dev.desafiocdc.client.mongodb.entities.Autor;
+import dev.desafiocdc.client.mongodb.repositories.AutorRepository;
 import dev.desafiocdc.services.AutorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

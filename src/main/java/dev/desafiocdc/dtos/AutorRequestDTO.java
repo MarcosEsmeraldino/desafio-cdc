@@ -1,6 +1,6 @@
 package dev.desafiocdc.dtos;
 
-import dev.desafiocdc.client.autor.entities.Autor;
+import dev.desafiocdc.client.mongodb.entities.Autor;
 import dev.desafiocdc.validations.UniqueValue;
 import jakarta.validation.constraints.*;
 

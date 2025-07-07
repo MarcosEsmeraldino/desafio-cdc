@@ -1,4 +1,4 @@
-package dev.desafiocdc.client.categoria.entities;
+package dev.desafiocdc.client.mongodb.entities;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

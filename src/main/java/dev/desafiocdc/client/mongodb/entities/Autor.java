@@ -1,4 +1,4 @@
-package dev.desafiocdc.client.autor.entities;
+package dev.desafiocdc.client.mongodb.entities;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

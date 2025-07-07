@@ -1,6 +1,6 @@
 package dev.desafiocdc.dtos;
 
-import dev.desafiocdc.client.categoria.entities.Categoria;
+import dev.desafiocdc.client.mongodb.entities.Categoria;
 
 public record CategoriaResponseDTO(
         String id,

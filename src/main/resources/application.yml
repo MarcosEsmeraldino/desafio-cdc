@@ -7,6 +7,7 @@ spring:
       auto-index-creation: true
   jackson:
     default-property-inclusion: NON_NULL
+    time-zone: America/Sao_Paulo
 
 logging:
   level:

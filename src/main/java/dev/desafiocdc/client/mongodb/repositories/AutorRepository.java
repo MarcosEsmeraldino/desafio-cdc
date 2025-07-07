@@ -1,6 +1,6 @@
-package dev.desafiocdc.client.autor.repositories;
+package dev.desafiocdc.client.mongodb.repositories;
 
-import dev.desafiocdc.client.autor.entities.Autor;
+import dev.desafiocdc.client.mongodb.entities.Autor;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

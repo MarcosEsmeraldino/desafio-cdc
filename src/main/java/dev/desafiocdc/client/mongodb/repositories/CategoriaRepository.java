@@ -1,6 +1,6 @@
-package dev.desafiocdc.client.categoria.repositories;
+package dev.desafiocdc.client.mongodb.repositories;
 
-import dev.desafiocdc.client.categoria.entities.Categoria;
+import dev.desafiocdc.client.mongodb.entities.Categoria;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
